@@ -16,15 +16,8 @@ router.post("/", async (req, res) => {
         message: "Rating must be between 1 and 5",
       });
     }
-    const feedback = await Feedback.create({
-      studentName,
-      courseName,
-      message,
-      rating,
-    });
-    res.status(201).json({
-      message: "Feedback submitted successfully",
-      feedback,
+    const feedback = await Feedback.create({studentName,courseName,message,rating,});
+    res.status(201).json({message: "Feedback submitted successfully",feedback,
     });
   } catch (error) {
     res.status(500).json({
